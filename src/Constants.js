@@ -1,25 +1,24 @@
 import React, {Component} from 'react'
-import AppStore from './Store/AppStore'
 import Main from './Components/Sections/Main'
 import Songs from './Components/Sections/Songs'
 import Albums from './Components/Sections/Albums'
 import Videos from './Components/Sections/Videos'
 import Error from './Components/Error'
 
-const data = AppStore.data
+
 
 export const CONSTANTS = {
-    renderProperComponent: (section) => {
+    renderProperComponent: (section, data) => {
         console.log(section)
         if(section.fields.sectionTitle.toLowerCase() === 'songs') {
-            return <Songs section={section} songs={data.songs}/>
+            return <Songs section={section} data={data} />
         } else if (section.fields.sectionTitle.toLowerCase() === 'videos') {
-            return <Videos section={section} />
+            return <Videos section={section} data={data} />
         } else if (section.fields.sectionTitle.toLowerCase() === 'albums') {
-            return <Albums section={section} albums={data.albums}/>
+            return <Albums section={section} data={data} />
         } 
         else if (section.fields.sectionTitle.toLowerCase() === 'home') {
-            return <Main section={section} />
+            return <Main section={section} data={data} />
         } else {
             return <Error />
         }

@@ -15,7 +15,7 @@ export default class Main extends Component {
                                     <a className="project-link">
                                     <h1 className="stripe animatedText">{this.props.section.fields.sectionTitle}</h1>
                                     </a>
-                                    <div className="sub-label">Pye Luis</div>
+                                    <div className="sub-label">{this.props.section.fields.contentTitle}</div>
                                     <div className="sub-label">Official</div>
                                     <Tape />
                                 </div>

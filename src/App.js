@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import 'semantic-ui-css/semantic.min.css';
 import './App.css'
 import './Core.css'
 import { BrowserRouter, Route } from 'react-router-dom'
@@ -7,24 +8,30 @@ import AppDispatcher from './Dispatch/Dispatcher'
 import routes from './routes'
 
 
-
+const Loader = () => (
+	<div id="Loader">
+		<div className="circ">
+			<div className="load">Loading...</div>
+			<div className="hands"></div>
+			<div className="body"></div>
+			<div className="head">
+				<div className="eye"></div>
+			</div>
+		</div>
+	</div>
+)
 
 export default class App extends Component {
 
-  constructor(props) {
+	constructor(props) {
 		super(props);
-
-		this.state = {
-			
-		}
-
+		this.state = {}
 	}
-	// Add change listeners to stores
+	
 	componentDidMount() {
-		AppStore.addChangeListener(this._onChange.bind(this))		
+		AppStore.addChangeListener(this._onChange.bind(this))
 	}
 
-	// Remove change listeners from stores
 	componentWillUnmount() {
 		AppStore.removeChangeListener(this._onChange.bind(this))
 	}
@@ -41,22 +48,22 @@ export default class App extends Component {
 	_onChange() {
 		this.setState(AppStore)
 	}
-  render() {
+	render() {
 
-    const data = AppStore.data
-    
-      if(!data.ready) {
-        this.getStore()
-        return <div>LOading</div>
-      } else {
-        return (
-          <BrowserRouter>
-            {routes}
-          </BrowserRouter>
-        )
-      }
-    
-  }
+		const data = AppStore.data
+
+		if (!data.ready) {
+			this.getStore()
+			return <div><Loader /></div>
+		} else {
+			return (
+				<BrowserRouter>
+					{routes}
+				</BrowserRouter>
+			)
+		}
+
+	}
 }
 
 

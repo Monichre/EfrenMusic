@@ -1,84 +1,99 @@
-/*----------------------
+/* LOADING COMPONENT */
 
-  Peel - CSS 1.0
-  By Themanoid
-
-  Table of Contents
-
-  00. Loader
-  01. Buttons
-  02. Filters
-  03. Forms
-  04. Header
-  05. Hero
-  06. Lists
-  07. Thumbs
-  08. Style
-  09. Footer
-  10. Accordion
-
------------------------*/
-
-#loader {
+#Loader {
+  background-color: black;
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  height: 100vh;
-  opacity: 1;
-  z-index: 999;
-  background: #000;
+  height: 100%;
+  width: 100%;
+  z-index: 2000;
 }
 
-#loader .container {
+.eye{
+  width: 20px; height: 8px;
+  background-color: #eee;
+  border-radius:0px 0px 20px 20px;
   position: relative;
+  top: 40px;
+  left: 10px;
+  box-shadow:  40px 0px 0px 0px #eee;              
 }
 
-#loader .indicator {
+.head{
+  -webkit-backface-visibility: hidden;
   position: relative;
+  margin: -250px auto;
+  width: 80px; height: 80px;
+  background-color: #111;
+  border-radius:50px;
+  box-shadow: inset -4px 2px 0px 0px #eee;
+    -webkit-animation:node 1.5s infinite alternate;
+  -webkit-animation-timing-function:ease-out;
+}
+.body{ 
+  position: relative;
+  margin: 90px auto;
+  width: 140px; height: 120px;
+  background-color: #111;
+  border-radius: 50px/25px ;
+  box-shadow: inset -5px 2px 0px 0px #eee;
+  -webkit-animation:node2 1.5s infinite alternate;
+  -webkit-animation-timing-function:ease-out;  
 }
 
-#loader .indicator .number {
-  font-size: 12em;
-  font-weight: bold;
+  @-webkit-keyframes node 
+      {
+         0%{ top:0px; }
+         50%{ top:10px; }
+         100% { top:0px;} 
+       }
+
+  @-webkit-keyframes node2
+      {
+         0%{ top:-5px; }
+         50%{ top:10px; }
+         100% { top:-5px;} 
+       }
+
+.circ{
+  -webkit-backface-visibility: hidden;
+   margin: 60px auto;
+  width: 180px; height: 180px;
+  background-color: #111;
+  border-radius: 0px 0px 50px 50px;
+  position: relative;
+  z-index: -1;  
+  left: 0%;
+  top: 20%;
+  overflow: hidden;
 }
 
-@media screen and (max-width: 950px) {
-  #loader .indicator .number {
-    font-size: 7em;
-  }
-}
-
-#loader .indicator .unit {
-  font-weight: bold;
-}
-
-#loader .indicator .loadbar {
+.hands{
+  -webkit-backface-visibility: hidden;
+  margin-top: 140px;
+  width: 120px;height: 120px;
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  background-color: #111;
+  border-radius:20px;
+  box-shadow:-1px -4px 0px 0px #eee;
+  -webkit-transform:rotate(45deg);
+  top:75%;left: 16%;
+  z-index: 1;
+  -webkit-animation:node2 1.5s infinite alternate;
+  -webkit-animation-timing-function:ease-out;
 }
 
-#loader .indicator .loadbar .inner {
-  -webkit-transition: all 1s;
-  transition: all 1s;
-  position: relative;
-  height: 8px;
-  width: 1%;
-  background: #fff;
-}
-
-#loader ./img-count {
-  font-size: 1em;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  padding: 16px;
-}
-
-#loader ./img-count .description {
-  margin-left: 8px;
+.load{  position: absolute;
+  width: 100px; height: 20px;
+   margin: -10px auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Julius Sans One', sans-serif;
+  font-size:30px;
+  font-weight:400;
+  color:#eee;
+  left: 10%;
+  top: 5%;
 }
 
 body {
@@ -375,7 +390,6 @@ nav#filters ul li a:hover {
     border: 0 !important;
   }
 }
-
 
 /* Forms */
 
@@ -1569,6 +1583,70 @@ g#XMLID_127_ {
     -webkit-transform: rotate(360deg);
   }
 }
+
+/* ALBUM GALLERY */
+#AlbumGallery {
+  position: absolute;
+  overflow-y: scroll!important;
+  z-index: 2000;
+  top: -200px;
+  right: 0;
+  width: 50%;
+  height: 500px;
+}
+
+.timeline {
+  margin: 30px auto;
+  padding: 0 10px;
+  position: relative;
+  transition: all 0.25s ease-in;
+  width: 100%;
+
+}
+
+.timeline::before {
+  background: #000;
+  content: '';
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  width: 3px;
+}
+
+.timeline::after {
+  clear: both;
+  content: '';
+  display: table;
+  width: 100%;
+}
+
+
+.timeline-icon {
+  background: #fefefe;
+  border-radius: 50%;
+  height: 50px;
+  left: 50%;
+  margin-left: -23px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 50px;
+}
+
+ .timeline-icon img,
+ .timeline-icon svg {
+  left: 14px;
+  position: relative;
+  top: 11px;
+}
+
+.timeline-icon svg {
+  top: 14px;
+}
+
+
+
 
 /* PLAYER */
 

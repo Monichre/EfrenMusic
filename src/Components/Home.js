@@ -14,27 +14,30 @@ export default class Home extends Component {
    
     render() {
 
-        const albums = this.props.data.albums
-        const fullPageOptions = {}
+        const data = this.props.data
+        const fullPageOptions = {
+            scrollSpeed: 500,
+            hideScrollBars: true,
+            breakpoint: 100
+        }
         const horizontalSliderProps = {
             name: 'horizontalSlider1', 
             infinite: true, 
           }
-
-        const horizontal_slides = this.props.data.sections.map((section, i) => (
+        const horizontal_slides = data.sections.map((section, i) => (
             <Slide className="slide" data-anchor={`slide${i + 1}`}>
-                {CONSTANTS.renderProperComponent(section)}
+                {CONSTANTS.renderProperComponent(section, data)}
             </Slide>
         ))
 
         horizontalSliderProps.slides = horizontal_slides
-        const full_page_slides = [ <HorizontalSlider {...horizontalSliderProps} />, <Slide><AlbumGallery albums={albums}/></Slide> ]
+        const full_page_slides = [ <HorizontalSlider {...horizontalSliderProps} />]
         fullPageOptions.slides = full_page_slides
 
         
         return (
             <div id="wrapper" className="animsition">
-                <Header albums={albums} />
+                <Header data={data} />
                 <div id="inner">
                     <section className="behind-header">
                             <div id="home-slider" className="">

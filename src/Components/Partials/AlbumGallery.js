@@ -1,6 +1,58 @@
 import React, { Component } from 'react'
 import Player from '../Partials/Player'
 
+const CardLeft = (props) => (
+<div className="large-6 medium-6 small-12 columns timeline-content left">
+    <div className="news-card-tag">
+        <span className="label"><p className="timeline-content-date">2010</p></span>
+    </div>
+    <div className="card news-card">
+        <img src="https://i.imgur.com/6jMbuU1.jpg"/>
+        <div className="card-section">
+            <div className="news-card-date">Sunday, 16th April</div>
+            <article className="news-card-article">
+            <h4 className="news-card-title"><a href="#">5 Features To Watch Out For in Angular v4</a></h4>
+            <p className="news-card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae facere, ipsam quae sit, eaque perferendis commodi!...</p>
+            </article>
+            <div className="news-card-author">
+                <div className="news-card-author-image">
+                    <img src="https://i.imgur.com/lAMD2kS.jpg" alt="user"/>
+                </div>
+                <div className="news-card-author-name">
+                    By <a href="#">Harry Manchanda</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+)
+const CardRight = (props) => (
+<div className="large-6 medium-6 small-12 columns timeline-content right">
+    <div className="news-card-tag">
+        <span className="label"><p className="timeline-content-date">2010</p></span>
+    </div>
+    <div className="card news-card">
+        <img src="https://i.imgur.com/6jMbuU1.jpg"/>
+        <div className="card-section">
+            <div className="news-card-date">Sunday, 16th April</div>
+            <article className="news-card-article">
+            <h4 className="news-card-title"><a href="#">5 Features To Watch Out For in Angular v4</a></h4>
+            <p className="news-card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae facere, ipsam quae sit, eaque perferendis commodi!...</p>
+            </article>
+            <div className="news-card-author">
+                <div className="news-card-author-image">
+                    <img src="https://i.imgur.com/lAMD2kS.jpg" alt="user"/>
+                </div>
+                <div className="news-card-author-name">
+                    By <a href="#">Harry Manchanda</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+)
+
+
 
 export default class AlbumGallery extends Component {
     constructor(props) {
@@ -26,7 +78,7 @@ export default class AlbumGallery extends Component {
     }
     setActiveAlbum(album, index) {
         console.log(album)
-        document.querySelector('body').classList.add('js')
+        document.querySelector('body').classNameList.add('js')
 
         this.setState({
             activeAlbum: { ...album },
@@ -48,74 +100,27 @@ export default class AlbumGallery extends Component {
             playTheRecord: true
         })
     }
-    playThatSong() {
-        // const arm = document.querySelector('.player__element.player__element--tonearm')
-        // console.log(arm)
-        
-		
-		// dynamics.animate(arm, {
-		// 	rotateZ : 40
-		// },{
-		// 	duration: 2000,
-		// 	type: dynamics.spring,
-		// 	frequency: 200,
-		// 	friction: 400
-		// });
-        // this.setState({
-        //     activeSongIs_: 'PLAYING'
-        // })
-    }
-    stopSong() {
-
-        // const arm = document.querySelector('.player__element.player__element--tonearm')
- 		
-		// dynamics.animate(arm, {
-		// 	rotateZ : -20
-		// },{
-		// 	duration: 2000,
-		// 	type: dynamics.spring,
-		// 	frequency: 200,
-		// 	friction: 400
-		// });
-        // this.setState({
-        //     activeSongIs_: 'STOPPED'
-        // })
-    }
-    pauseSong() {
-        this.setState({
-            activeSongIs_: 'PAUSED'
-        })
-    }
-    nextSong() {
-        this.setState({
-            counter: this.state.counter += 1
-        })
-    }
-    previousSong() {
-        this.setState({
-            counter: this.state.counter -= 1
-        })
-    }
-    handleSongLoading(e) {
-        // console.log(e)
-    }
-    handleSongPlaying(e) {
-        // console.log(e)
-    }
+  
     render() {
-
+{/* <Player album={album} /> */}
         return (
             <div className="AlbumGallery">
-                  <div className="view view--grid view--current">
-                        <ul className="album-grid grid--loaded">
-                            {this.props.albums.map((album, i) => (
-                                <li className="grid__item">
-                                    <Player album={album} />
-                                </li>
-                            ))}
-                        </ul>
-
-                    </div>
+                <div className="timeline">
+                    {this.props.albums.map((album, i) => {
+                        if (i % 2 === 0) {
+                            return (
+                                <div className="timeline-item">
+                                    <div className="timeline-icon">
+                                        <img src="/img/radio.svg" alt=""/>
+                                    </div>
+                                    <CardRight />
+                                </div>
+                            )
+                        } else {
+                            <CardLeft />
+                        }
+                    })}
+                </div>
             </div>
         )
     }

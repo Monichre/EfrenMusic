@@ -16,15 +16,22 @@
     "react-dom": "^16.1.1",
     "react-particles-js": "^2.1.0",
     "react-router-dom": "^4.2.2",
-    "react-sound": "^0.10.0"
+    "react-sound": "^0.10.0",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.77.1"
   },
   "devDependencies": {
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "@storybook/react": "^3.3.3",
+    "@storybook/addon-actions": "^3.3.3",
+    "@storybook/addon-links": "^3.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Amplitude from 'amplitudejs'
+import { Checkbox, Grid, Header, Image, Rail, Segment, Sticky } from 'semantic-ui-react'
 
 export default class Player extends Component {
     constructor(props) {
@@ -33,10 +34,10 @@ export default class Player extends Component {
         const songs = this.props.album.fields.songs
         
         return (
-            <div className="row">
-                <div className="large-8 medium-10 small-11 large-centered medium-centered small-centered columns" id="amplitude-player">
-                    <div className="row">
-                        <div className="large-6 medium-6 small-12 columns" id="amplitude-left">
+            <div className="">
+                <div className="" id="amplitude-player">
+                    <div className="">
+                        <div className="" id="amplitude-left">
                             <img amplitude-song-info="cover_art_url" amplitude-main-song-info="true" />
                             <div id="player-left-bottom">
                                 <div id="time-container">
@@ -77,7 +78,7 @@ export default class Player extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="large-6 medium-6 small-12 columns" id="amplitude-right">
+                        <div className="" id="amplitude-right">
                             {songs.map((song) => (
                                 <div className="song amplitude-song-container amplitude-play-pause" amplitude-song-index="0">
                                     <div className="song-now-playing-icon-container">
@@ -126,3 +127,52 @@ export default class Player extends Component {
         )
     }
 }
+
+
+
+
+// const Placeholder = () => <Image src='/assets/images/wireframe/paragraph.png' />
+
+// export default class StickyExampleActive extends Component {
+//   state = { active: true }
+
+//   handleContextRef = contextRef => this.setState({ contextRef })
+
+//   handleToggle = () => this.setState({ active: !this.state.active })
+
+//   render() {
+//     const { active, contextRef } = this.state
+
+//     return (
+//       <Grid centered columns={3}>
+//         <Grid.Column>
+//           <div ref={this.handleContextRef}>
+//             <Segment>
+//               {_.times(10, i => <Placeholder key={i} />)}
+
+//               <Rail position='left'>
+//                 <Sticky context={contextRef}>
+//                   <Segment>
+//                     <Checkbox
+//                       checked={active}
+//                       label='Activate Sticky on right'
+//                       onChange={this.handleToggle}
+//                       toggle
+//                     />
+//                   </Segment>
+//                 </Sticky>
+//               </Rail>
+
+//               <Rail position='right'>
+//                 <Sticky active={active} context={contextRef}>
+//                   <Header as='h3'>Stuck Content</Header>
+//                   <Image src='/assets/images/wireframe/image.png' />
+//                 </Sticky>
+//               </Rail>
+//             </Segment>
+//           </div>
+//         </Grid.Column>
+//       </Grid>
+//     )
+//   }
+// }
