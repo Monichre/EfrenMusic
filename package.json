@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "amplitudejs": "^3.2.3",
     "classie": "^1.0.0",
     "contentful": "^5.0.5",
     "dynamics.js": "^1.1.5",

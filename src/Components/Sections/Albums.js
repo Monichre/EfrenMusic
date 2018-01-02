@@ -15,12 +15,12 @@ export default class Albums extends Component {
                             <div className="grid">
                                 <div className="col-1">2017</div>
                                 <div className="col-7">
-                                    <div className="label">January</div>
+                                    <div className="sub-label">January</div>
                                     <a className="project-link">
                                     <h1 className="stripe animatedText">{this.props.section.fields.sectionTitle}</h1>
                                     </a>
-                                    <div className="label">Pye Luis</div>
-                                    <div className="label">Official</div>
+                                    <div className="sub-label">Pye Luis</div>
+                                    <div className="sub-label">Official</div>
                                     
                                 </div>
                             </div>

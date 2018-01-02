@@ -1058,11 +1058,11 @@ p {
   line-height: 1.55;
 }
 
-.label {
+.sub-label {
   color: #979797;
 }
 
-.label.label-white {
+.sub-label.sub-label-white {
   color: #fff;
 }
 
