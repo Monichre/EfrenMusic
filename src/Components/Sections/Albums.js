@@ -55,9 +55,32 @@ const CardLeft = (props) => (
 
 
 export default class Albums extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            activeAlbum: {},
+            showPlayer: false
+        }
+    }
+
+    handleAlbumClick(album) {
+        console.log(album)
+        this.setState({
+            activeAlbum: album,
+            showPlayer: true
+        })
+    }
 
     render() {
-
+        const _this = this
+        let the_player
+        if(this.state.showPlayer) {
+            the_player = <Player album={this.state.activeAlbum}/>
+        }
+        console.log(<Player album={this.state.activeAlbum}/>)
+        console.log(the_player)
+        
         return (
 
             <div className="hero fs">
@@ -73,6 +96,7 @@ export default class Albums extends Component {
                                 </a>
                                 <div className="sub-label">Pye Luis</div>
                                 <div className="sub-label">Official</div>
+                                {the_player}
                                 <section id="AlbumGallery">
                                     <Grid className="timeline">
                                         {this.props.data.albums.map((album, i) => {
@@ -83,7 +107,7 @@ export default class Albums extends Component {
                                                             <img src="/img/radio.svg" alt="" />
                                                         </div>
                                                         <Grid.Column floated='left' width={5}>
-                                                            <CardRight album={album} />
+                                                            <CardRight className="album_card" album={album} onClick={_this.handleAlbumClick.bind(this,album)}/>
                                                         </Grid.Column>
                                                     </Grid.Row>
                                                 )
@@ -94,7 +118,7 @@ export default class Albums extends Component {
                                                             <img src="/img/radio.svg" alt="" />
                                                         </div>
                                                         <Grid.Column floated='right' width={5}>
-                                                            <CardLeft album={album} />
+                                                            <CardLeft className="album_card" album={album} onClick={_this.handleAlbumClick.bind(this,album)}/>
                                                         </Grid.Column>
                                                     </Grid.Row>
                                                 )

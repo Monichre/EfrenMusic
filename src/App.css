@@ -1588,13 +1588,16 @@ g#XMLID_127_ {
 #AlbumGallery {
   position: absolute;
   overflow-y: scroll!important;
-  z-index: 2000;
+  /* z-index: 2000; */
   top: -200px;
   right: 0;
   width: 50%;
   height: 500px;
 }
-
+.album_card {
+  position: relative;
+  z-index: 1000;
+}
 .timeline {
   margin: 30px auto;
   padding: 0 10px;
