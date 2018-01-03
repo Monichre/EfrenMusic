@@ -34,10 +34,10 @@ export default class Player extends Component {
         const songs = this.props.album.fields.songs
         
         return (
-            <div className="">
-                <div className="" id="amplitude-player">
+            
+                <Segment className="" id="amplitude-player">
                     <div className="">
-                        <div className="" id="amplitude-left">
+                        <Segment float='left' className="" id="amplitude-left">
                             <img amplitude-song-info="cover_art_url" amplitude-main-song-info="true" />
                             <div id="player-left-bottom">
                                 <div id="time-container">
@@ -77,8 +77,8 @@ export default class Player extends Component {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="" id="amplitude-right">
+                        </Segment>
+                        <Segment float='right' className="" id="amplitude-right">
                             {songs.map((song) => (
                                 <div className="song amplitude-song-container amplitude-play-pause" amplitude-song-index="0">
                                     <div className="song-now-playing-icon-container">
@@ -118,12 +118,10 @@ export default class Player extends Component {
                                     <span className="song-duration">3:30</span>
                                 </div>
                             ))}
-
-
-                        </div>
+                        </Segment>
                     </div>
-                </div>
-            </div>
+                </Segment>
+            
         )
     }
 }

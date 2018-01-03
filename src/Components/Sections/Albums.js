@@ -1,58 +1,7 @@
 import React, { Component } from 'react'
 import { Stereo } from '../Partials/Stereo'
 import Player from '../Partials/Player'
-import { Card, Icon, Image, Segment, Grid, Container } from 'semantic-ui-react'
-
-const CardRight = (props) => (
-    <Card>
-        <Image src={props.album.fields.albumPhoto.fields.file.url} />
-        <Card.Content>
-            <Card.Header>
-                {props.album.fields.albumTitle}
-            </Card.Header>
-            <Card.Meta>
-                <span className='date'>
-                    Joined in 2015
-        </span>
-            </Card.Meta>
-            <Card.Description>
-                Matthew is a musician living in Nashville.
-      </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-            <a>
-                <Icon name='user' />
-                22 Friends
-      </a>
-        </Card.Content>
-    </Card>
-)
-
-const CardLeft = (props) => (
-    <Card>
-        <Image src={props.album.fields.albumPhoto.fields.file.url} />
-        <Card.Content>
-            <Card.Header>
-                {props.album.fields.albumTitle}
-            </Card.Header>
-            <Card.Meta>
-                <span className='date'>
-                    Joined in 2015
-        </span>
-            </Card.Meta>
-            <Card.Description>
-                Matthew is a musician living in Nashville.
-      </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-            <a>
-                <Icon name='user' />
-                22 Friends
-      </a>
-        </Card.Content>
-    </Card>
-)
-
+import { Card, Icon, Image, Grid, Container, Rail, Segment, Sticky, Checkbox } from 'semantic-ui-react'
 
 export default class Albums extends Component {
     constructor(props) {
@@ -71,16 +20,17 @@ export default class Albums extends Component {
             showPlayer: true
         })
     }
+   
 
     render() {
         const _this = this
         let the_player
-        if(this.state.showPlayer) {
-            the_player = <Player album={this.state.activeAlbum}/>
+        if (this.state.showPlayer) {
+            the_player = <Player album={this.state.activeAlbum} />
         }
-        console.log(<Player album={this.state.activeAlbum}/>)
-        console.log(the_player)
-        
+        const { showPlayer } = this.state
+     
+
         return (
 
             <div className="hero fs">
@@ -97,39 +47,78 @@ export default class Albums extends Component {
                                 <div className="sub-label">Pye Luis</div>
                                 <div className="sub-label">Official</div>
                                 {the_player}
-                                <section id="AlbumGallery">
-                                    <Grid className="timeline">
-                                        {this.props.data.albums.map((album, i) => {
-                                            if (i % 2 === 0) {
-                                                return (
-                                                    <Grid.Row>
-                                                        <div className="timeline-icon">
-                                                            <img src="/img/radio.svg" alt="" />
-                                                        </div>
-                                                        <Grid.Column floated='left' width={5}>
-                                                            <CardRight className="album_card" album={album} onClick={_this.handleAlbumClick.bind(this,album)}/>
-                                                        </Grid.Column>
-                                                    </Grid.Row>
-                                                )
-                                            } else {
-                                                return (
-                                                    <Grid.Row>
-                                                        <div className="timeline-icon">
-                                                            <img src="/img/radio.svg" alt="" />
-                                                        </div>
-                                                        <Grid.Column floated='right' width={5}>
-                                                            <CardLeft className="album_card" album={album} onClick={_this.handleAlbumClick.bind(this,album)}/>
-                                                        </Grid.Column>
-                                                    </Grid.Row>
-                                                )
-                                            }
-                                        })}
-                                    </Grid>
-                                </section>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section id="AlbumGallery">
+                    <Grid className="timeline">
+                        {this.props.data.albums.map((album, i) => {
+                            if (i % 2 === 0) {
+                                return (
+                                    <Grid.Row>
+                                        <div className="timeline-icon">
+                                            <img src="/img/radio.svg" alt="" />
+                                        </div>
+                                        <Grid.Column floated='left' width={5}>
+                                            <Card className="album_card" onClick={_this.handleAlbumClick.bind(this, album)}>
+                                                <Image src={album.fields.albumPhoto.fields.file.url} />
+                                                <Card.Content>
+                                                    <Card.Header>
+                                                        {album.fields.albumTitle}
+                                                    </Card.Header>
+                                                    <Card.Meta>
+                                                        <span className='date'>Joined in 2015</span>
+                                                    </Card.Meta>
+                                                    <Card.Description>
+                                                        Matthew is a musician living in Nashville.
+                                                        </Card.Description>
+                                                </Card.Content>
+                                                <Card.Content extra>
+                                                    <a><Icon name='user' />22 Friends</a>
+                                                </Card.Content>
+                                            </Card>
+                                        </Grid.Column>
+                                    </Grid.Row>
+                                )
+                            } else {
+                                return (
+                                    <Grid.Row>
+                                        <div className="timeline-icon">
+                                            <img src="/img/radio.svg" alt="" />
+                                        </div>
+                                        <Grid.Column floated='right' width={5}>
+                                            <Card className="album_card" onClick={_this.handleAlbumClick.bind(this, album)}>
+                                                <Image src={album.fields.albumPhoto.fields.file.url} />
+                                                <Card.Content>
+                                                    <Card.Header>
+                                                        {album.fields.albumTitle}
+                                                    </Card.Header>
+                                                    <Card.Meta>
+                                                        <span className='date'>Joined in 2015</span>
+                                                    </Card.Meta>
+                                                    <Card.Description>
+                                                        Matthew is a musician living in Nashville.
+                                                        </Card.Description>
+                                                </Card.Content>
+                                                <Card.Content extra>
+                                                    <a><Icon name='user' />22 Friends</a>
+                                                </Card.Content>
+                                            </Card>
+                                        </Grid.Column>
+                                    </Grid.Row>
+                                )
+                            }
+                        })}
+                    </Grid>
+                </section>
+                <Rail position='left'>
+                    <Sticky active={showPlayer}>
+                        <Card>
+                            {the_player}
+                        </Card>
+                    </Sticky>
+              </Rail>
             </div>
         )
     }

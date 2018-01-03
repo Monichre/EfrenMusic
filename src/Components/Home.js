@@ -17,8 +17,8 @@ export default class Home extends Component {
         const data = this.props.data
         const fullPageOptions = {
             scrollSpeed: 500,
-            hideScrollBars: true,
-            breakpoint: 100
+            hideScrollBars: true
+            // breakpoint: 100
         }
         const horizontalSliderProps = {
             name: 'horizontalSlider1', 
