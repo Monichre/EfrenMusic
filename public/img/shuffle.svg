@@ -4,7 +4,7 @@
     <title>Shuffle</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.25">
         <g id="Player" transform="translate(-28.000000, -531.000000)">
             <g id="Controls" transform="translate(24.000000, 504.000000)">
                 <g id="Shuffle" transform="translate(0.000000, 24.000000)">

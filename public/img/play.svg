@@ -1,23 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
-    <title>Oval 1</title>
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="05.100.00-OpenSource-Amplitude" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="HD_05.100.00-521Website_OpenSource-Amplitude" transform="translate(-515.000000, -772.000000)">
-            <g id="Lead-in">
-                <g id="Player" transform="translate(368.000000, 359.000000)">
-                    <g id="Controllers/Status/Info" transform="translate(0.000000, 357.000000)">
-                        <g id="Controls" transform="translate(114.000000, 56.000000)">
-                            <g id="Play/Pause" transform="translate(33.000000, 0.000000)">
-                                <g id="Oval-1">
-                                    <circle fill="#00A0FF" cx="30" cy="30" r="30"></circle>
-                                    <path d="M43.625,29.8025209 L23.646,17.4255209 C22.189,16.4735209 21,17.1725209 21,18.9875209 L21,43.0105209 C21,44.8225209 22.188,45.5285209 23.646,44.5725209 L43.625,32.1975209 C43.625,32.1975209 44.336,31.6975209 44.336,31.0005209 C44.336,30.3015209 43.625,29.8025209 43.625,29.8025209 L43.625,29.8025209 Z" id="Play" fill="#FFFFFF"></path>
-                                </g>
-                            </g>
-                        </g>
-                    </g>
+    <g id="Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Player" transform="translate(-158.000000, -510.000000)" fill="#FFFFFF">
+            <g id="Controls" transform="translate(24.000000, 504.000000)">
+                <g id="Play" transform="translate(128.000000, 0.000000)">
+                    <path d="M36,6 C19.44,6 6,19.44 6,36 C6,52.56 19.44,66 36,66 C52.56,66 66,52.56 66,36 C66,19.44 52.56,6 36,6 Z M36,60 C22.77,60 12,49.23 12,36 C12,22.77 22.77,12 36,12 C49.23,12 60,22.77 60,36 C60,49.23 49.23,60 36,60 Z M45.9454545,35.9487179 L29,47.8974359 L29,24 L45.9454545,35.9487179 Z" id="Shape"></path>
                 </g>
             </g>
         </g>
