@@ -1585,18 +1585,22 @@ g#XMLID_127_ {
 }
 
 /* ALBUM GALLERY */
-#AlbumGallery {
+#AlbumGallery, #SongGallery {
   position: absolute;
   overflow-y: scroll!important;
-  /* z-index: 2000; */
-  bottom: -0;
+  padding-top: 50px;
+  top: 0;
   right: 0;
   width: 50%;
-  height: 500px;
+  
+  height:100%;
 }
 .album_card {
   position: relative;
   z-index: 1000;
+}
+.song_card {
+  margin: auto;
 }
 .timeline {
   margin: 30px auto;
