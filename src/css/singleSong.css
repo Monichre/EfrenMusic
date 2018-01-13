@@ -52,12 +52,14 @@ div.player div.meta-container div.time-container:after {
 } */
 div.player div.meta-container progress.amplitude-song-played-progress:not([value]) {
   /* background-color: #313252; */
+  margin-top: 10px;
 }
 div.player div.meta-container progress.amplitude-song-played-progress {
   background-color: #d7dee3;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  margin-top: 10px;
   width: 100%;
   height: 2px;
   display: block;
@@ -83,6 +85,11 @@ div.player div.meta-container div.control-container {
   margin-top: 20px;
   display: flex;
   justify-content: center;
+}
+div.player div.meta-container div.control-container img {
+  height: 25px;
+  width: 25px;
+  margin: 0 10px;
 }
 div.player div.meta-container div.control-container div.amplitude-prev {
   width: 28px;

@@ -754,6 +754,7 @@ nav.main-nav ul li {
 .hero h1 {
   line-height: 1;
   position: relative;
+  z-index: 1;
   display: inline-block;
 }
 
@@ -2066,3 +2067,56 @@ div#amplitude-right	div.song:after{
 @media screen and (min-width: 64em) and (max-width: 74.9375em) {
 
 }
+
+/* VIDEO */
+.inkblot_container {
+  
+    height: 100%;  
+    width: 75%;
+    top: 0;
+    position: absolute;
+    right: 0;
+   
+}
+
+.inkblot_container_inner {
+  mix-blend-mode: lighten;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 0;
+  
+}
+.inkblot_container #myVideo {
+  mix-blend-mode: multiply;
+  /* top: calc(50% + 40px); */
+ 
+  width: 100%;
+  height: 80%;
+ position: relative;
+ z-index: -1;
+  
+  margin: auto;
+}
+.inkblot_container h1 {
+  color: white;
+  font-weight: normal;
+  font-size: 15px;
+  opacity: 0;
+  -webkit-transition: all 0.8s 0.2s;
+  transition: all 0.8s 0.2s;
+  text-align: center;
+  display: block;
+  position: relative;
+  left: 43%;
+  top: 40%;
+  /* -webkit-transform: translateX(50%);
+  transform: translateX(50%); */
+  width: max-content;
+}
+

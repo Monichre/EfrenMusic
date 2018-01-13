@@ -52,7 +52,7 @@ export default class Songs extends Component {
                                     <div className="timeline-icon">
                                         <img src="/img/radio.svg" alt="" />
                                     </div>
-                                    <Grid.Column floated='left' width={5}>
+                                    <Grid.Column floated='left' width={6}>
                                        <SinglePlayer  song={song} song_index={i} />
                                     </Grid.Column>
                                 </Grid.Row>
@@ -63,7 +63,7 @@ export default class Songs extends Component {
                                     <div className="timeline-icon">
                                         <img src="/img/radio.svg" alt="" />
                                     </div>
-                                    <Grid.Column floated='right' width={5}>
+                                    <Grid.Column floated='right' width={6}>
                                     <SinglePlayer song={song} song_index={i} />
                                     </Grid.Column>
                                 </Grid.Row>

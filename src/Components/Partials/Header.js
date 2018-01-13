@@ -1,7 +1,5 @@
 import React from 'react'
-import AppStore from '../../Store/AppStore'
-
-
+import { Dropdown, Menu } from 'semantic-ui-react'
 
 export const Header = (props) => (
     <header id="main-header">
@@ -14,11 +12,32 @@ export const Header = (props) => (
                         <div className="bar"></div>
                     </div>
                     <ul className="nav-links">
-                        <li className="col-1 col-offset-1"><a href="profile.html" className="nav-link undefined">Audio</a></li>
-                        <li className="col-1 col-offset-1"><a href="contact.html" className="nav-link undefined">Visual</a></li>
+                        <li className="col-1 col-offset-1">
+                            <Dropdown text='Audio' className='nav-link undefined'>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item>
+                                        <Dropdown text='Releases'>
+                                            <Dropdown.Menu>
+                                                <Dropdown.Item>Pye Luis</Dropdown.Item>
+                                                <Dropdown.Item>Collaborations</Dropdown.Item>
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                    </Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </li>
+                        <li className="col-1 col-offset-1">
+                            <Dropdown text='Visual' className='nav-link undefined'>
+                                <Dropdown.Menu>
+                                    <Dropdown.Item>Photography</Dropdown.Item>
+                                    <Dropdown.Item>Video</Dropdown.Item>
+                                </Dropdown.Menu>
+                            </Dropdown>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 )
+
