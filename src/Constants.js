@@ -7,14 +7,14 @@ import Error from './Components/Error'
 
 
 export const CONSTANTS = {
-    renderProperComponent: (section, data) => {
+    renderProperComponent: (section, data, horizontalActive) => {
         console.log(section)
         if(section.fields.sectionTitle.toLowerCase() === 'audio') {
-            return <Audio section={section} data={data} />
+            return <Audio horizontalActive={horizontalActive} section={section} data={data} />
         } else if (section.fields.sectionTitle.toLowerCase() === 'visual') {
-            return <Visual section={section} data={data} />
+            return <Visual horizontalActive={horizontalActive} section={section} data={data} />
         } else if (section.fields.sectionTitle.toLowerCase() === 'home') {
-            return <Main section={section} data={data} />
+            return <Main horizontalActive={horizontalActive} section={section} data={data} />
         } else {
             return <Error />
         }
