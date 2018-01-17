@@ -1,9 +1,40 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import Photography from '../Partials/Photography'
+import AppStore from '../../Store/AppStore' 
 
-export default class Videos extends Component {
+class VisualModal extends Component {
+    constructor(props) {
+        super(props)
+        this.el = document.createElement('div')
+    }
+
+    componentDidMount() {
+        document.body.appendChild(this.el);
+
+    }
+
+    componentWillUnmount() {
+        document.body.removeChild(this.el);
+    }
+
+    render() {
+
+        return ReactDOM.createPortal(
+            this.props.children,
+            this.el,
+        )
+    }
+}
+
+export default class Visual extends Component {
+    state = {
+        showModal: false
+    }
 
     setMediaFilter(str) {
-
+        console.log(str)
+        this.setState({showModal: true})
     }
     launchInkBlotMenu() {
 
@@ -24,9 +55,20 @@ export default class Videos extends Component {
     }
 
     render() {
-        console.log(this.props)
+        const { showModal } = this.state 
+        const { photography } = AppStore.data
+        console.log(photography)
+
+        let Modal 
+        
         if (this.props.horizontalActive === 2) {
             this.launchInkBlotMenu()
+        }
+        
+        if (showModal) {
+            Modal = (<VisualModal>
+                        <Photography photos={photography.fields.media}/>
+                    </VisualModal>)
         }
         return (
             <div className="hero fs">
@@ -53,6 +95,7 @@ export default class Videos extends Component {
                         </div>
                     </div>
                 </div>
+                {Modal}
             </div>
         )
     }

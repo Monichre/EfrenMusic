@@ -14,14 +14,15 @@ export const getStore = (callback) => {
         console.log(response.items)
         const songs = _.filter(response.items, (item) => item.sys.contentType.sys.id === 'song')
         const albums = _.filter(response.items, (item) => item.sys.contentType.sys.id === 'album')
-
-        let sections = _.filter(response.items, (item) => item.sys.contentType.sys.id === 'section')
+        let sections = _.filter(response.items, (item) => (item.sys.contentType.sys.id === 'section' && item.fields.sectionTitle !== 'Photography'))
         sections = _.sortBy(sections, [(section) => section.fields.order], ['asc'])
+        let photography = _.find(response.items, (item) => item.fields.sectionTitle === 'Photography')
+        
 
         AppStore.data.songs = songs
         AppStore.data.sections = sections
         AppStore.data.albums = albums
-
+        AppStore.data.photography = photography
         AppStore.data.ready = true 
         AppStore.emitChange()
 

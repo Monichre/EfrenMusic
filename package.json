@@ -16,15 +16,16 @@
     "react-dom": "^16.1.1",
     "react-particles-js": "^2.1.0",
     "react-router-dom": "^4.2.2",
+    "react-slick": "^0.16.0",
     "react-sound": "^0.10.0",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.77.1"
   },
   "devDependencies": {
-    "react-scripts": "1.0.17",
-    "@storybook/react": "^3.3.3",
     "@storybook/addon-actions": "^3.3.3",
-    "@storybook/addon-links": "^3.3.3"
+    "@storybook/addon-links": "^3.3.3",
+    "@storybook/react": "^3.3.3",
+    "react-scripts": "1.0.17"
   },
   "scripts": {
     "start": "react-scripts start",

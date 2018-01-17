@@ -1593,9 +1593,10 @@ g#XMLID_127_ {
   top: 0;
   right: 0;
   width: 50%;
-  
   height:100%;
 }
+
+
 .album_card {
   position: relative;
   z-index: 1000;

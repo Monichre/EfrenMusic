@@ -42,11 +42,10 @@ export default class Home extends Component {
 
         const data = this.props.data
         const { active } = this.state;
-
-        const currentActive = active.Fullpage;
-        const prevSlide = changeFullpageSlide.bind(null, currentActive - 1);
-        const nextSlide = changeFullpageSlide.bind(null, currentActive + 1);
-        const goToTop = changeFullpageSlide.bind(null, 0);
+        const currentActive = active.Fullpage
+        const prevSlide = changeFullpageSlide.bind(null, currentActive - 1)
+        const nextSlide = changeFullpageSlide.bind(null, currentActive + 1)
+        const goToTop = changeFullpageSlide.bind(null, 0)
         const fullPageOptions = {
             scrollSpeed: 500,
             hideScrollBars: true,
@@ -58,27 +57,18 @@ export default class Home extends Component {
             breakpoint: 200,
             activeSlide: 0
         }
-
         const horizontalSliderName = horizontalSliderProps.name;
         const horizontalActive = this.state.active[horizontalSliderName];
-
-        const prevHorizontalSlide = changeHorizontalSlide.bind(null, horizontalSliderName, horizontalActive - 1);
-        const nextHorizontalSlide = changeHorizontalSlide.bind(null, horizontalSliderName, horizontalActive + 1);
+        const prevHorizontalSlide = changeHorizontalSlide.bind(null, horizontalSliderName, horizontalActive - 1)
+        const nextHorizontalSlide = changeHorizontalSlide.bind(null, horizontalSliderName, horizontalActive + 1)
         const horizontal_slides = data.sections.map((section, i) => (
             <Slide className="slide" data-anchor={`slide${i + 1}`}>
                 {CONSTANTS.renderProperComponent(section, data, horizontalActive)}
             </Slide>
         ))
-
         horizontalSliderProps.slides = horizontal_slides
         const full_page_slides = [<HorizontalSlider  {...horizontalSliderProps} />]
         fullPageOptions.slides = full_page_slides
-
-
-
-
-
-
 
         return (
             <div id="wrapper" className="animsition">

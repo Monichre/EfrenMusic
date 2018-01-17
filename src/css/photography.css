@@ -1,0 +1,101 @@
+ #Photography {
+   position: absolute;
+   /* overflow-y: scroll!important;
+  padding-top: 50px; */
+   top: 0;
+   right: 0;
+   width: 100%;
+   height: 100%;
+ }
+
+ .slider {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100vh!important;
+   z-index: 2000;
+   -webkit-transition: .5s ease-in-out;
+   transition: .5s ease-in-out;
+ }
+ .button_previous, .button_next {
+   position: absolute;
+   top: 45%;
+   z-index: 1000;
+   
+ }
+ .button_previous {
+  left: 50px;
+  
+ } 
+ .button_next {
+   right: 50px;
+ }
+
+ .slick-list,
+ .slick-track,
+ .slick-slide {
+   width: 100%;
+   height: 100%!important;
+ }
+  #Photography.down .slider {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  #Photography.down .slider .item .tit {
+    opacity: 0;
+  }
+
+ .slick-slide.slick-active {
+   width: 100%!important;
+ }
+
+ .slider .item {
+   position: relative;
+   width: 100%;
+   height: 100%;
+ }
+
+ /* .slick-slide.item svg {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+ } */
+
+ .slick-slide.item img {
+   position: absolute;
+   top: 0;
+   left: 0;
+   object-fit: cover!important;
+   object-position: center!important;
+   width: 100%!important;
+   height: 100%!important;
+   /* mask: url(#donutmask); */
+ }
+ /* .slider .item .tit {
+    text-align: center;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    letter-spacing: 2rem;
+    color: #fff;
+    font-family: Roboto, sans-serif;
+    font-size: 7vw;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+  } */
+ /* #sliderMain {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    -webkit-transform: scale(1) !important;
+            transform: scale(1) !important;
+    pointer-events: none;
+  } */
