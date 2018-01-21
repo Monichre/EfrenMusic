@@ -88,7 +88,7 @@
   width: 100px; height: 20px;
    margin: -10px auto;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Julius Sans One', sans-serif;
+  
   font-size:30px;
   font-weight:400;
   color:#eee;
@@ -98,8 +98,27 @@
 
 body {
   z-index: 0;
+  font-family: "Code"!important;
 }
 
+@font-face {
+  font-family: "Helvetica";
+  src: url("/fonts/Helvetica.otf");
+}
+
+@font-face {
+  font-family: "Code";
+  src: url("/fonts/CODE_Light.ttf");
+}
+
+@font-face {
+  font-family: "Monoton-Regular";
+  src: url("/fonts/Monoton-Regular.ttf");
+}
+h1, h2 {
+  font-family: "Monoton-Regular";
+  letter-spacing: 5px;
+}
 #inner .behind-header {
   margin-top: -240px;
 }
@@ -1079,326 +1098,6 @@ footer span {
   }
 }
 
-
-/* Accordion */
-
-ul.accordion {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  border-bottom: 1px solid #979797;
-}
-
-ul.accordion li .head {
-  border-top: 1px solid #979797;
-  padding: 20px 0;
-  font-size: 1.2em;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-ul.accordion li .head .title:after {
-  content: '+';
-  display: block;
-  float: right;
-  font-size: 2em;
-  margin-top: -11px;
-  line-height: 1;
-  color: #979797;
-  -webkit-transition: color .3s;
-  transition: color .3s;
-}
-
-ul.accordion li:hover .head .title:after {
-  color: #fff;
-}
-
-ul.accordion li .body {
-  padding-bottom: 20px;
-}
-
-ul.accordion li.active .title:after {
-  margin-top: -24px;
-  content: '_';
-}
-
-
-/*
-
-Tera Lightbox CSS
-Version 4.0
-Made by Themanoid
-
-*/
-
-#lightbox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #000;
-  z-index: 99999999;
-  display: none;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-align: center;
-}
-
-#lightbox .lightbox-inner {
-  position: relative;
-  margin: auto;
-  width: auto;
-  height: auto;
-  -webkit-transition: all .3s;
-  transition: all .3s;
-  max-width: 90vw;
-  max-height: 90vh;
-}
-
-#lightbox /img,
-#lightbox iframe,
-#lightbox video {
-  max-width: 100%;
-  max-height: 100%;
-  opacity: 0;
-  -webkit-transform: scale(0.95);
-  transform: scale(0.95);
-  -webkit-transition: opacity .8s, -webkit-transform 1s;
-  transition: opacity .8s, -webkit-transform 1s;
-  transition: transform 1s, opacity .8s;
-  transition: transform 1s, opacity .8s, -webkit-transform 1s;
-}
-
-#lightbox iframe,
-#lightbox video {
-  width: 1280px;
-  height: 720px;
-  max-width: 80%;
-  max-height: 90%;
-}
-
-#lightbox .controls {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  top: 0;
-}
-
-@media screen and (min-width: 1200px) {
-  #lightbox .controls .galleryClose {
-    position: absolute;
-    top: -30px;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    right: -30px;
-    background: #333;
-    color: #fff;
-    cursor: pointer;
-    opacity: 0;
-  }
-  #lightbox .controls .galleryClose:hover {
-    background: #555;
-  }
-  #lightbox .controls .galleryNext,
-  #lightbox .controls .galleryPrev {
-    width: 50%;
-    position: absolute;
-    z-index: 100001;
-    height: 100%;
-  }
-  #lightbox .controls .galleryNext span,
-  #lightbox .controls .galleryPrev span {
-    display: none;
-  }
-  #lightbox .controls .galleryNext:hover,
-  #lightbox .controls .galleryPrev:hover {
-    background: rgba(0, 0, 0, 0.2);
-  }
-  #lightbox .controls .galleryPrev {
-    /* cursor: url("/modules/tera-lightbox/images/arrow-left.png") 0 15, w-resize; */
-  }
-  #lightbox .controls .galleryNext {
-    left: 50%;
-    /* cursor: url("/modules/tera-lightbox/images/arrow-right.png") 25 15, e-resize; */
-  }
-  #lightbox .controls .galleryNext,
-  #lightbox .controls .galleryClose,
-  #lightbox .controls .galleryPrev {
-    -webkit-transition: all .3s;
-    transition: all .3s;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  #lightbox .controls {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: #000;
-    z-index: 9999999;
-  }
-  #lightbox .controls .galleryNext,
-  #lightbox .controls .galleryClose,
-  #lightbox .controls .galleryPrev {
-    width: 33.3333%;
-    position: relative;
-    float: left;
-    height: 60px;
-    line-height: 60px;
-    font-size: 20px;
-    opacity: 1 !important;
-    cursor: pointer;
-    color: #fff;
-  }
-  #lightbox .controls .galleryNext:hover,
-  #lightbox .controls .galleryClose:hover,
-  #lightbox .controls .galleryPrev:hover {
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.2) !important;
-  }
-  #lightbox .controls .galleryClose {
-    background: black !important;
-    font-size: 30px;
-  }
-}
-
-#lightbox .caption {
-  display: none;
-  color: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  text-align: center;
-  padding: 20px;
-}
-
-
-/*
-
-Titan Slider CSS
-Version 3.0
-Made by Themanoid
-
-*/
-
-.titanThumbContainer {
-  list-style: none;
-  padding: 0;
-  margin: 1px -1px 0;
-}
-
-.titanThumbContainer li {
-  margin: 0;
-  padding-left: 1px;
-  width: 25%;
-  display: inline-block;
-  cursor: pointer;
-  opacity: .4;
-  -webkit-transition: all .3s;
-  transition: all .3s;
-}
-
-.titanThumbContainer li.active,
-.titanThumbContainer li.active:hover {
-  opacity: 1;
-}
-
-.titanThumbContainer li:hover {
-  opacity: .9;
-}
-
-.titanThumbContainer li /img {
-  max-width: 100%;
-  margin: 0;
-}
-
-.titanSlider {
-  position: relative;
-  overflow: hidden;
-}
-
-.titanSlider.titanCarousel img {
-  margin: 0;
-}
-
-/* .titanSlider.next {
-  cursor: url("/modules/titan-slider/slide-right.png") 5 -25, e-resize;
-}
-
-.titanSlider.next.dark {
-  cursor: url("/modules/titan-slider/slide-right-dark.png") 5 -25, e-resize;
-}
-
-.titanSlider.previous {
-  cursor: url("/modules/titan-slider/slide-left.png") 5 -25, w-resize;
-}
-
-.titanSlider.previous.dark {
-  cursor: url("/modules/titan-slider/slide-left-dark.png") 5 -25, w-resize;
-} */
-
-.titanSlider.fw {
-  width: 100vw;
-}
-
-.titanSlider.fh {
-  height: 100vh;
-}
-
-.titanSlider.fs {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  z-index: 0;
-}
-
-.titanSlider.fs .slides {
-  height: 100%;
-}
-
-.titanSlider.fs .slides .slide {
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-}
-
-.titanSlider .slides {
-  font-size: 0;
-  white-space: nowrap;
-  position: relative;
-  top: 0;
-  left: -100%;
-  margin: 0;
-  padding: 0;
-}
-
-.titanSlider .slides .slide {
-  display: inline-block;
-  vertical-align: top;
-  width: 100%;
-  white-space: normal;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-  font-size: 1rem;
-}
-
-.titanSlider .slides .slide /img {
-  vertical-align: top;
-  display: inline-block;
-}
-
-.titanSlider .slides .slide .fw {
-  width: 100%;
-}
 
 
 /* Particle JS */

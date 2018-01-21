@@ -649,7 +649,8 @@ a:focus, a:active, a:hover, textarea:focus, textarea:active, textarea:hover, inp
 }
 
 body {
-  font-family: "europa",sans-serif;
+  
+
 }
 
 body * {
@@ -933,7 +934,7 @@ section#contact .container form {
 }
 
 body {
-  font-family: "HK Grotesk", "Helvetica Neue", Helvetica, sans-serif;
+  
   font-weight: 400;
 }
 
