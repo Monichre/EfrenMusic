@@ -1055,17 +1055,9 @@ h4:before {
 }
 
 p {
-  color: #979797;
   line-height: 1.55;
 }
 
-.sub-label {
-  color: #979797;
-}
-
-.sub-label.sub-label-white {
-  color: #fff;
-}
 
 .grid {
   margin: 0 0 1px 0;

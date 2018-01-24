@@ -18,8 +18,8 @@ export const Header = (props) => (
                                     <Dropdown.Item>
                                         <Dropdown text='Releases'>
                                             <Dropdown.Menu>
-                                                <Dropdown.Item>Pye Luis</Dropdown.Item>
-                                                <Dropdown.Item>Collaborations</Dropdown.Item>
+                                                <Dropdown.Item className="text__inner">Pye Luis</Dropdown.Item>
+                                                <Dropdown.Item className="text__inner">Collaborations</Dropdown.Item>
                                             </Dropdown.Menu>
                                         </Dropdown>
                                     </Dropdown.Item>
@@ -29,8 +29,8 @@ export const Header = (props) => (
                         <li className="col-1 col-offset-1">
                             <Dropdown text='Visual' className='nav-link undefined'>
                                 <Dropdown.Menu>
-                                    <Dropdown.Item>Photography</Dropdown.Item>
-                                    <Dropdown.Item>Video</Dropdown.Item>
+                                    <Dropdown.Item className="text__inner">Photography</Dropdown.Item>
+                                    <Dropdown.Item className="text__inner">Video</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                         </li>

@@ -12,7 +12,8 @@ export default class Home extends Component {
         this.state = {
             active: {
                 Fullpage: 0,
-                horizontalSlider1: 0
+                horizontalSlider1: 0,
+                slideIsChanging: false
             }
         }
         this.onSlideChangeStart = this.onSlideChangeStart.bind(this)
@@ -24,6 +25,9 @@ export default class Home extends Component {
         console.log(props)
         console.log(state)
         console.log(newState)
+        this.setState({
+            slideIsChanging: true
+        })
     }
 
     onSlideChangeEnd(name, props, state, newState) {
@@ -61,9 +65,10 @@ export default class Home extends Component {
         const horizontalActive = this.state.active[horizontalSliderName];
         const prevHorizontalSlide = changeHorizontalSlide.bind(null, horizontalSliderName, horizontalActive - 1)
         const nextHorizontalSlide = changeHorizontalSlide.bind(null, horizontalSliderName, horizontalActive + 1)
+        const { slideIsChanging }= this.state
         const horizontal_slides = data.sections.map((section, i) => (
             <Slide className="slide" data-anchor={`slide${i + 1}`}>
-                {CONSTANTS.renderProperComponent(section, data, horizontalActive)}
+                {CONSTANTS.renderProperComponent(section, data, horizontalActive, slideIsChanging)}
             </Slide>
         ))
         horizontalSliderProps.slides = horizontal_slides

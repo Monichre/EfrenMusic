@@ -9,14 +9,12 @@ export default class Main extends Component {
                     <div className="vcenter">
                         <div className="container">
                             <div className="grid">
-                                <div className="col-1">2017</div>
+                                <div className="col-1 date">2017</div>
                                 <div className="col-7">
-                                    <div className="sub-label">January</div>
-                                    <a className="project-link">
-                                    <h1 className="stripe animatedText">{this.props.section.fields.sectionTitle}</h1>
-                                    </a>
+                                    <div className="project-link">
+                                        <h1 className="stripe animatedText">{this.props.section.fields.sectionTitle}</h1>
+                                    </div>
                                     <div className="sub-label">{this.props.section.fields.contentTitle}</div>
-                                    <div className="sub-label">Official</div>
                                     <Tape />
                                 </div>
                             </div>

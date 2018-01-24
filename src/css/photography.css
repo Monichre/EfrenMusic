@@ -31,6 +31,12 @@
  .button_next {
    right: 50px;
  }
+ .button_close {
+  position: absolute;
+  z-index: 20002;
+  top: 20px; right: 20px;
+  
+ }
 
  .slick-list,
  .slick-track,

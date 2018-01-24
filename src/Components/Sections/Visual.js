@@ -28,10 +28,14 @@ class VisualModal extends Component {
 }
 
 export default class Visual extends Component {
-    state = {
-        showModal: false
+    constructor(props) {
+        super(props)
+        
+        this.state = {
+            showModal: false
+        }
+        this.closePhotography = this.closePhotography.bind(this)
     }
-
     setMediaFilter(str) {
         console.log(str)
         this.setState({showModal: true})
@@ -53,6 +57,11 @@ export default class Visual extends Component {
         }, 1700)
 
     }
+    closePhotography() {
+        console.log('this should close photography modal')
+
+        this.setState({showModal: false})
+    }
 
     render() {
         const { showModal } = this.state 
@@ -67,7 +76,7 @@ export default class Visual extends Component {
         
         if (showModal) {
             Modal = (<VisualModal>
-                        <Photography photos={photography.fields.media}/>
+                        <Photography photos={photography.fields.media} closePhotography={this.closePhotography}/>
                     </VisualModal>)
         }
         return (

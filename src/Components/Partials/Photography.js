@@ -9,6 +9,7 @@ export default class Photography extends Component {
 
        this.next = this.next.bind(this)
        this.previous = this.previous.bind(this)
+       this.closeSlider = this.closeSlider.bind(this)
     }
     componentDidMount() {
         // $('.slider').clone().removeAttr('id').attr('id', 'slider-2').appendTo('body');
@@ -79,6 +80,9 @@ export default class Photography extends Component {
   previous() {
     Slider.slickPrev()
   }
+  closeSlider() {
+      this.props.closePhotography()
+  }
     handleMouseDown() {
         const Photography = document.getElementById('Photography')
         Photography.classList.add('down')
@@ -86,6 +90,7 @@ export default class Photography extends Component {
     render() {
         const Prev = (props) => <div onClick={props.onClick} className="button_previous"><img src='/img/small-previous.svg' alt=""/></div>
         const Next = (props) => <div onClick={props.onClick} className="button_next"><img src='/img/small-next.svg' alt=""/></div>
+        const Close = (props) => <div onClick={props.onClick} className="button_close"><img src='/img/x.svg' alt=""/></div>
         const { photos } = this.props
         const settings = {
             dots: false,
@@ -99,6 +104,7 @@ export default class Photography extends Component {
         };
         return (
             <div id="Photography">
+                <Close onClick={this.closeSlider} />
                 <Slider {...settings} className="slider" id="sliderMain" onMouseDown={this.handleMouseDown.bind(this)}>
                     {photos.map((photo) => (
                         <div className="item">

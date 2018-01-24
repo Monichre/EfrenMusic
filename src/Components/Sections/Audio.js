@@ -36,8 +36,23 @@ export default class Audio extends Component {
         this.state = {
             showModal: false
         }
+        this.handleTouchStart = this.handleTouchStart.bind(this)
+        this.handleTouchMove = this.handleTouchMove.bind(this)
     }
-
+    hideModal() {
+        this.setState({
+            showModal: false    
+        })
+    }
+    handleTouchStart(e) {
+        console.log(e)
+        console.log("im swiping - start")
+    }
+    handleTouchMove(e) {
+        console.log(e)
+        console.log("im swiping - process")
+    }
+ 
     render() {
         const _this = this
         const { songs } = this.props.data
@@ -46,11 +61,12 @@ export default class Audio extends Component {
             Modal = (<SongsModal>
                         <Songs songs={songs} />
                     </SongsModal>)
-        }
+        } 
 
         return (
 
             <div className="hero fs">
+
                 <div className="bg faded"></div>
                 <div className="vcenter">
                     <div className="container">

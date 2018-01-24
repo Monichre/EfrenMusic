@@ -1,3 +1,10 @@
+/* FONTS 
+********************************** */
+
+@font-face {
+  font-family: "Monoton-Regular";
+  src: url("/fonts/Monoton-Regular.ttf");
+}
 
 div.player {
   border: 1px solid #eaeaea;
@@ -18,17 +25,19 @@ div.player div.meta-container {
   padding: 10px;
 }
 div.player div.meta-container div.song-title {
-  text-align: center;
-  color: #263238;
-  font-size: 20px;
+  /* text-align: center; */
   font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 12px;
+  color: black;
   
 }
 div.player div.meta-container div.song-artist {
-  text-align: center;
-  
-  font-size: 16px;
-  color: #263238;
+  font-family: "Monoton-Regular";
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 12px;
+  color: black;
   margin-top: 10px;
 }
 div.player div.meta-container div.time-container {

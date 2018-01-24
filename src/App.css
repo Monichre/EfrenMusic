@@ -531,6 +531,32 @@ header#main-header a.nav-link {
   font-weight: bold;
   z-index: 3;
 }
+.ui.dropdown>.text {
+  display: inline-block;
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+.sub-label {
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 12px;
+  color: black;
+}
+.ui.dropdown .menu>.item.text__inner {
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 10px;
+}
+.date {
+  letter-spacing: 2px;
+  font-size: 12px;
+  color: black;
+  font-family: "Monoton-Regular";
+}
 
 @media screen and (min-width: 950px) {
   header#main-header a.nav-link:after {
