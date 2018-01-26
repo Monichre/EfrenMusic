@@ -29,7 +29,7 @@ export const Header = (props) => (
                         <li className="col-1 col-offset-1">
                             <Dropdown text='Visual' className='nav-link undefined'>
                                 <Dropdown.Menu>
-                                    <Dropdown.Item className="text__inner">Photography</Dropdown.Item>
+                                    <Dropdown.Item className="text__inner" onClick={props.showModal}>Photography</Dropdown.Item>
                                     <Dropdown.Item className="text__inner">Video</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import 'semantic-ui-css/semantic.min.css';
-import './App.css'
-import './Core.css'
 import { BrowserRouter, Route } from 'react-router-dom'
 import AppStore from './Store/AppStore'
 import AppDispatcher from './Dispatch/Dispatcher'
 import routes from './routes'
+import 'semantic-ui-css/semantic.min.css';
+import './App.css'
+import './Core.css'
 
 
 const Loader = () => (
@@ -48,6 +48,7 @@ export default class App extends Component {
 	_onChange() {
 		this.setState(AppStore)
 	}
+
 	render() {
 
 		const data = AppStore.data

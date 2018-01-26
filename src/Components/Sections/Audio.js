@@ -36,23 +36,8 @@ export default class Audio extends Component {
         this.state = {
             showModal: false
         }
-        this.handleTouchStart = this.handleTouchStart.bind(this)
-        this.handleTouchMove = this.handleTouchMove.bind(this)
-    }
-    hideModal() {
-        this.setState({
-            showModal: false    
-        })
-    }
-    handleTouchStart(e) {
-        console.log(e)
-        console.log("im swiping - start")
-    }
-    handleTouchMove(e) {
-        console.log(e)
-        console.log("im swiping - process")
-    }
- 
+        
+    } 
     render() {
         const _this = this
         const { songs } = this.props.data
@@ -66,19 +51,16 @@ export default class Audio extends Component {
         return (
 
             <div className="hero fs">
-
                 <div className="bg faded"></div>
                 <div className="vcenter">
                     <div className="container">
                         <div className="grid">
-                            <div className="col-1">2017</div>
+                            <div className="col-1 date">2017</div>
                             <div className="col-7">
-                                <div className="sub-label">January</div>
                                 <a className="project-link">
                                     <h1 className="stripe animatedText">{this.props.section.fields.sectionTitle}</h1>
                                 </a>
                                 <div className="sub-label">Pye Luis</div>
-                                <div className="sub-label">Official</div>
                             </div>
                         </div>
                     </div>
