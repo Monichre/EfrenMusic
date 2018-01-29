@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { Header } from './Partials/Header'
+import { Header } from '../../Partials/Header'
 import { Fullpage, Slide, HorizontalSlider } from 'fullpage-react'
-import { ParticlesBackground } from './Partials/Particles'
-import { CONSTANTS } from '../Constants'
-import AppStore from '../Store/AppStore'
-import { Modal } from './Partials/Modal'
-import Photography from './Partials/Photography'
+import { ParticlesBackground } from '../../Partials/Particles'
+import { CONSTANTS } from '../../Constants'
+import AppStore from '../../Store/AppStore'
+import { Modal } from '../../Partials/Modal'
+import Photography from '../Visual/Photography'
 
 export default class Home extends Component {
   constructor (props) {

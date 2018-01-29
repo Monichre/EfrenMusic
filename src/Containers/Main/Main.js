@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Tape from '../Partials/Tape'
+import Tape from '../../Partials/Tape'
 
 export default class Main extends Component {
     render() {

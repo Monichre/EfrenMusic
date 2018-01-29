@@ -1,22 +1,25 @@
 import React, { Component } from 'react'
-import Photography from '../Partials/Photography'
+import Photography from './Photography'
+import Videos from './Videos'
 import AppStore from '../../Store/AppStore'
-import { Modal } from '../Partials/Modal'
+import { Modal } from '../../Partials/Modal'
 
 export default class Visual extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      showModal: false
+      showModal: false,
+      activeModal: ''
     }
-    this.closePhotography = this.closePhotography.bind(this)
-    this.setMediaFilter = this.setMediaFilter.bind(this)
+    this.closeModal = this.closeModal.bind(this)
   }
   setMediaFilter (str) {
-    // e.preventDefault()
     console.log(str)
-    this.setState({ showModal: true })
+    this.setState({
+      showModal: true,
+      activeModal: str
+    })
   }
   launchInkBlotMenu () {
     const vid = document.getElementById('myVideo')
@@ -33,22 +36,28 @@ export default class Visual extends Component {
       document.querySelector('.inkblot_container_inner').style.opacity = 1
     }, 1700)
   }
-  closePhotography () {
+  closeModal () {
     this.setState({ showModal: false })
   }
 
   render () {
-    const { showModal } = this.state
-    const { photography } = AppStore.data
+    const { showModal, activeModal } = this.state
+    const { photography, videos } = AppStore.data
+    console.log(AppStore.data)
+
     let visModal
 
     if (this.props.horizontalActive === 2) {
       this.launchInkBlotMenu()
     }
 
-    if (showModal) {
+    if (showModal && activeModal === 'video') {
       visModal = (<Modal>
-        <Photography photos={photography.fields.media} closePhotography={this.closePhotography} />
+        <Videos videos={videos} closeModal={this.closeModal} />
+      </Modal>)
+    } else if (showModal && activeModal === 'photography') {
+      visModal = (<Modal>
+        <Photography photos={photography.fields.media} closeModal={this.closeModal} />
       </Modal>)
     }
     return (
@@ -67,8 +76,8 @@ export default class Visual extends Component {
             </div>
           </div>
           <div className='inkblot_container'>
-            <h1 onClick={this.setMediaFilter.bind('photography')}>Photography</h1> <br />
-            <h1 onClick={this.setMediaFilter.bind('video')}>Video</h1>
+            <h1 onClick={this.setMediaFilter.bind(this, 'photography')}>Photography</h1> <br />
+            <h1 onClick={this.setMediaFilter.bind(this, 'video')}>Video</h1>
             <div className='inkblot_container_inner'>
               <video data-depth='50' id='myVideo'>
                 <source src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/ink4.mp4' type='video/mp4' />
