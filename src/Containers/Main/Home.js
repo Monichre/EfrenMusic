@@ -77,27 +77,22 @@ export default class Home extends Component {
     const fullPageSlides = [<HorizontalSlider {...horizontalSliderProps} />]
     fullPageOptions.slides = fullPageSlides
 
-    let visModal
     if (this.state.showModal) {
-      visModal = (<Modal>
-        <Photography photos={photography.fields.media} closePhotography={this.closeModalDisplay} />
-      </Modal>)
-    }
-
-    return (
-      <div id='wrapper' className='animsition'>
-        <Header data={data} showModal={this.handleModalDisplay} />
-        <div id='inner'>
-          <section className='behind-header'>
-            <div id='home-slider' className=''>
-              <ParticlesBackground />
-              {visModal}
-              <Fullpage {...fullPageOptions} onSlideChangeStart={this.onSlideChangeStart} onSlideChangeEnd={this.onSlideChangeEnd} />
-            </div>
-          </section>
+      return <Modal><Photography photos={photography.fields.media} closeModal={this.closeModalDisplay} /></Modal>
+    } else {
+      return (
+        <div id='wrapper' className='animsition'>
+          <Header data={data} showModal={this.handleModalDisplay} />
+          <div id='inner'>
+            <section className='behind-header'>
+              <div id='home-slider' className=''>
+                <ParticlesBackground />
+                <Fullpage {...fullPageOptions} onSlideChangeStart={this.onSlideChangeStart} onSlideChangeEnd={this.onSlideChangeEnd} />
+              </div>
+            </section>
+          </div>
         </div>
-      </div>
-
-    )
+      )
+    }
   }
 }

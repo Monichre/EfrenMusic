@@ -944,6 +944,10 @@ header#main-header a.nav-link {
   letter-spacing: 2px;
   font-size: 12px;
 }
+.nav-link.audio .text, .nav-link.visual .text {
+  font-family: "Monoton-Regular";
+  color: #5D5A5A!important;
+}
 
 .sub-label {
   font-weight: 600;
@@ -956,6 +960,8 @@ header#main-header a.nav-link {
   font-weight: 600;
   letter-spacing: 2px;
   font-size: 10px;
+  font-family: "Monoton-Regular";
+  color: #5D5A5A!important;
 }
 
 .date {
@@ -2350,14 +2356,23 @@ div#amplitude-right div.song:after {
   width: 100%;
   height: 100%;
 }
-
 .react-photo-gallery--gallery {
+  position: relative;
+}
+.react-photo-gallery--gallery div:nth-of-type(1) {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 2000;
   height: 100vh;
+  width: 100%;
   background: #1c1c1d;
+  padding: 100px 200px;
+}
+.react-photo-gallery--gallery div:nth-of-type(1) img {
+  object-fit: contain;
+  height: auto;
+  
 }
 
 .button_close {

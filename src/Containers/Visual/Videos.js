@@ -70,13 +70,13 @@ export default class Videos extends Component {
         alt: video.fields.title
       })
     })
-    if (this.state.showLoader) {
-      this.handleLoad()
-    }
+    // if (this.state.showLoader) {
+    //   this.handleLoad()
+    // }
 
     return (
       <div id='Videos'>
-        {Loader}
+        {/* {Loader} */}
         <Close onClick={this.closeSlider} />
         <Gallery photos={videoSet} onClick={this.openLightbox} />
         <Lightbox images={videoSet}

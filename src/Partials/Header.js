@@ -13,7 +13,7 @@ export const Header = (props) => (
                     </div>
                     <ul className="nav-links">
                         <li className="col-1 col-offset-1">
-                            <Dropdown text='Audio' className='nav-link undefined'>
+                            <Dropdown text='Audio' className='nav-link undefined audio'>
                                 <Dropdown.Menu>
                                     <Dropdown.Item>
                                         <Dropdown text='Releases'>
@@ -27,7 +27,7 @@ export const Header = (props) => (
                             </Dropdown>
                         </li>
                         <li className="col-1 col-offset-1">
-                            <Dropdown text='Visual' className='nav-link undefined'>
+                            <Dropdown text='Visual' className='nav-link undefined visual'>
                                 <Dropdown.Menu>
                                     <Dropdown.Item className="text__inner" onClick={props.showModal}>Photography</Dropdown.Item>
                                     <Dropdown.Item className="text__inner">Video</Dropdown.Item>
