@@ -27,7 +27,7 @@ export default class Audio extends Component {
     super(props);
     this.state = {
       showModal: false,
-      sideBarVisible: false
+      sideBarVisible: true
     };
   }
 
@@ -52,22 +52,26 @@ export default class Audio extends Component {
             vertical
             inverted
           >
+          <h1 className="menu-title">Songs</h1>
             <Songs songs={songs} />
           </Sidebar>
           <Sidebar.Pusher>
             <div className="page-content">
               <div className="page-content__inner">
-                <div className="page-title">
-                  <h1 className="stripe animatedText">
-                    {this.props.section.fields.sectionTitle}
-                  </h1>
+                <div className="content">
+                  <div className="page-title">
+                    <h1 className="stripe animatedText">
+                      {this.props.section.fields.sectionTitle}
+                    </h1>
+                  </div>
+                  <div
+                    className="sub-title"
+                    onClick={this.toggleVisibility.bind(this)}
+                  >
+                    {this.props.section.fields.contentTitle}
+                  </div>
                 </div>
-                <div
-                  className="sub-title"
-                  onClick={this.toggleVisibility.bind(this)}
-                >
-                  {this.props.section.fields.contentTitle}
-                </div>
+                <div className="media" />
               </div>
             </div>
           </Sidebar.Pusher>

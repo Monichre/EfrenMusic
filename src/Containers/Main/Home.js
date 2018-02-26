@@ -7,6 +7,12 @@ import AppStore from "../../Flux/Store/AppStore";
 import { Modal } from "../../Partials/Modal";
 import Photography from "../Visual/Photography";
 
+const sliderDictionary = {
+  0: "Home",
+  1: "Audio: The Tracks",
+  2: "Visuals: Photography & Video"
+};
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
@@ -23,12 +29,6 @@ export default class Home extends Component {
     this.onSlideChangeEnd = this.onSlideChangeEnd.bind(this);
     this.handleModalDisplay = this.handleModalDisplay.bind(this);
     this.closeModalDisplay = this.closeModalDisplay.bind(this);
-  }
-  componentWillMount() {
-    console.log(this.props);
-  }
-  componentDidMount() {
-    console.log(this.props);
   }
 
   onSlideChangeStart(name, props, state, newState) {
@@ -56,6 +56,7 @@ export default class Home extends Component {
       showModal: false
     });
   }
+
   render() {
     const { data } = AppStore;
     const { sections, photography, albums, songs, videos } = AppStore.data;
@@ -92,7 +93,6 @@ export default class Home extends Component {
     horizontalSliderProps.slides = horizontalSlides;
     const fullPageSlides = [<HorizontalSlider {...horizontalSliderProps} />];
     fullPageOptions.slides = fullPageSlides;
-    // <Header data={data} showModal={this.handleModalDisplay} />
 
     if (this.state.showModal) {
       return (
