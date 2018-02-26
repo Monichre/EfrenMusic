@@ -6,20 +6,6 @@ import Home from "./Containers/Main/Home";
 import routes from "./routes";
 import "semantic-ui-css/semantic.min.css";
 import "./css/App.css";
-import "./css/Core.css";
-
-const Loader = () => (
-  <div id="Loader">
-    <div className="circ">
-      <div className="load">Loading...</div>
-      <div className="hands" />
-      <div className="body" />
-      <div className="head">
-        <div className="eye" />
-      </div>
-    </div>
-  </div>
-);
 
 export default class App extends Component {
   constructor(props) {
