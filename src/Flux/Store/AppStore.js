@@ -3,7 +3,10 @@ import _ from 'lodash'
 
 export default _.extend({}, EventEmitter.prototype, {
     data: {
-        ready: false
+        ready: false,
+        sections: [],
+        songs: [],
+        videos: []
     },
     emitChange: function(){
         this.emit('change')

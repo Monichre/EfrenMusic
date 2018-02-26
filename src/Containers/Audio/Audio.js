@@ -1,65 +1,78 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import Songs from './Songs'
+import React, { Component } from "react";
+import { Sidebar, Segment, Menu } from "semantic-ui-react";
+import ReactDOM from "react-dom";
+import Songs from "./Songs";
 
 class SongsModal extends React.Component {
-  constructor (props) {
-    super(props)
-    this.el = document.createElement('div')
+  constructor(props) {
+    super(props);
+    this.el = document.createElement("div");
   }
 
-  componentDidMount () {
-    document.body.appendChild(this.el)
+  componentDidMount() {
+    document.body.appendChild(this.el);
   }
 
-  componentWillUnmount () {
-    document.body.removeChild(this.el)
+  componentWillUnmount() {
+    document.body.removeChild(this.el);
   }
 
-  render () {
-    return ReactDOM.createPortal(
-      this.props.children,
-      this.el
-    )
+  render() {
+    return ReactDOM.createPortal(this.props.children, this.el);
   }
 }
 
 export default class Audio extends Component {
-  constructor (props) {
-    super(props)
-
+  constructor(props) {
+    super(props);
     this.state = {
-      showModal: false
-    }
+      showModal: false,
+      sideBarVisible: false
+    };
   }
-  render () {
-    const { songs } = this.props.data
-    let Modal
-    if (this.props.horizontalActive === 1) {
-      Modal = (<SongsModal>
-        <Songs songs={songs} />
-      </SongsModal>)
-    }
+
+  toggleVisibility() {
+    this.setState({ sideBarVisible: !this.state.sideBarVisible });
+  }
+  render() {
+    const { songs } = this.props.data;
+    const { sideBarVisible } = this.state;
 
     return (
-
-      <div className='hero fs'>
-        <div className='bg faded' />
-        <div className='vcenter'>
-          <div className='container'>
-            <div className='grid'>
-              <div className='col-1 date'>2017</div>
-              <div className='col-7'>
-                <a className='project-link'>
-                  <h1 className='stripe animatedText'>{this.props.section.fields.sectionTitle}</h1>
-                </a>
-                <div className='sub-label'>Pye Luis</div>
+      <div className="page">
+        <Sidebar.Pushable as={Segment}>
+          <Sidebar
+            id="audio-sidebar"
+            as={Menu}
+            animation="overlay"
+            width="wide"
+            direction="right"
+            visible={sideBarVisible}
+            icon="labeled"
+            vertical
+            inverted
+          >
+            <Songs songs={songs} />
+          </Sidebar>
+          <Sidebar.Pusher>
+            <div className="page-content">
+              <div className="page-content__inner">
+                <div className="page-title">
+                  <h1 className="stripe animatedText">
+                    {this.props.section.fields.sectionTitle}
+                  </h1>
+                </div>
+                <div
+                  className="sub-title"
+                  onClick={this.toggleVisibility.bind(this)}
+                >
+                  {this.props.section.fields.contentTitle}
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        {Modal}
-      </div >
-    )
+          </Sidebar.Pusher>
+        </Sidebar.Pushable>
+      </div>
+    );
   }
 }

@@ -1,7 +1,7 @@
 import * as Contentful from 'contentful'
 import _ from 'lodash'
 import AppStore from '../Store/AppStore'
-import {CONFIG} from '../config'
+import {CONFIG} from '../../config'
 
 export const getStore = (callback) => {
   const cms = Contentful.createClient({
@@ -25,9 +25,5 @@ export const getStore = (callback) => {
     AppStore.data.photography = photography
     AppStore.data.ready = true
     AppStore.emitChange()
-
-    if (callback) {
-      callback(false, AppStore)
-    }
   })
 }

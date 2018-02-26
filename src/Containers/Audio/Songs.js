@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Grid } from 'semantic-ui-react'
 import SinglePlayer from '../Players/SinglePlayer'
 import Amplitude from 'amplitudejs'
+import {Menu} from "semantic-ui-react";
 
 export default class Songs extends Component {
   constructor (props) {
@@ -37,37 +38,6 @@ export default class Songs extends Component {
 
   render () {
     const { songs } = this.state
-
-    return (
-      <section id='SongGallery'>
-        <Grid className='timeline'>
-          {songs ? songs.map((song, i) => {
-            if (i % 2 === 0) {
-              return (
-                <Grid.Row>
-                  <div className='timeline-icon'>
-                    <img src='/img/radio.svg' alt='' />
-                  </div>
-                  <Grid.Column floated='left' width={6}>
-                    <SinglePlayer song={song} song_index={i} />
-                  </Grid.Column>
-                </Grid.Row>
-              )
-            } else {
-              return (
-                <Grid.Row>
-                  <div className='timeline-icon'>
-                    <img src='/img/radio.svg' alt='' />
-                  </div>
-                  <Grid.Column floated='right' width={6}>
-                    <SinglePlayer song={song} song_index={i} />
-                  </Grid.Column>
-                </Grid.Row>
-              )
-            }
-          }) : null}
-        </Grid>
-      </section >
-    )
+    return songs ? songs.map((song, i) => <Menu.Item name={song.name}><SinglePlayer song={song} song_index={i} /> </Menu.Item>) : null
   }
 }
