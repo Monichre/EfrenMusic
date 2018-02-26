@@ -94,8 +94,9 @@ export default class Visual extends Component {
         >
           {videos.map(video => (
             <Menu.Item name={video.fields.title}>
+              <h3>{video.fields.title}</h3>
               <Card className="video_card">
-                <video autoPlay={false}>
+                <video autoPlay={false} controls>
                   <source
                     src={video.fields.link.fields.file.url}
                     type="video/mp4"
