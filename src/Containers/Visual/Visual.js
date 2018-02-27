@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import Photography from "./Photography";
 import { Sidebar, Segment, Card, Menu, Header } from "semantic-ui-react";
-import Videos from "./Videos";
 import AppStore from "../../Flux/Store/AppStore";
-import { Modal } from "../../Partials/Modal";
+
 
 export default class Visual extends Component {
   constructor(props) {
@@ -17,6 +15,14 @@ export default class Visual extends Component {
       firstInkRender: true
     };
   }
+  componentWillMount() {
+    const { photography, videos } = AppStore.data;
+    const { media } = photography.fields;
+    this.setState({
+      photos: media
+    })
+  }
+
   togglePhotos() {
     this.setState({ photographyVis: !this.state.photographyVis });
   }
@@ -29,27 +35,9 @@ export default class Visual extends Component {
     const { photography, videos } = AppStore.data;
     const { photographyVis, videoVis } = this.state;
     const { media } = photography.fields;
-    const firstPhoto = media[0].fields.image.fields.file.url;
-    const secondPhoto = media[1].fields.image.fields.file.url;
-    const thirdPhoto = media[2].fields.image.fields.file.url;
-
+ 
     return (
       <Sidebar.Pushable as={Segment}>
-         <Sidebar
-          as={Menu}
-          animation="scale down"
-          direction="top"
-          visible={photographyVis}
-          inverted
-        >
-          {media.map(photo => (
-            <Menu.Item name={photo.fields.title}>
-              <Card className="photo_card">
-                <img src={photo.fields.image.fields.file.url}/>
-              </Card>
-            </Menu.Item>
-          ))}
-        </Sidebar>
         <Sidebar
           id="video-menu"
           as={Menu}
@@ -89,7 +77,7 @@ export default class Visual extends Component {
                   <h1 onClick={this.togglePhotos.bind(this)}>Photography</h1>
                   <h1 onClick={this.toggleVids.bind(this)}>Video</h1>
                   <div className="picture">
-                    <img src={thirdPhoto} />
+                      <img src={media[2].fields.image.fields.file.url} />
                   </div>
                 </div>
               </div>
